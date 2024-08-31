@@ -1,0 +1,468 @@
+@font-face {
+  font-family: TicTacToe;
+  src: url(fonts/Jersey10-Regular.ttf);
+}
+
+@font-face {
+  font-family: message;
+  src: url(fonts/EduVICWANTBeginner-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: para;
+  src: url(fonts/ostrich-regular.ttf);
+}
+:root{
+    --background: black;
+    --text: white
+}
+
+*{
+    box-sizing: border-box;
+    color: var(--text);
+}
+
+body{
+    background-color:var(--background);
+}
+
+input,select,option{
+  color: black;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 95%;
+    gap: 30px;
+}
+
+.birthday-card-container{
+    position: relative;
+    height: 400px;
+    width: 90%;
+    /* border: 1px white solid; */
+    border-radius: 20px;
+    margin:  auto;
+    box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.birthday-card{
+  font-family: para;
+    height: 340px;
+    width: 390px;
+    /* border: 1px white solid; */
+    margin:  auto;
+    position: absolute;
+    left: 0;
+    right: 100px;
+    top: 0;
+    bottom: 0;
+    perspective: 1200px;
+    -webkit-perspective: 1200px;
+    transition: 1s;
+    color: black;
+}
+
+.birthday-card:hover {
+    transform: rotate(-5deg);
+    translate: 50px;
+  }
+.birthday-card:hover .outside {
+    transform: rotateY(-130deg);
+}
+
+.outside,
+.inside{
+    border: 1px solid pink;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50.1%;
+}
+
+.inside {
+    background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+    line-height: 3;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    left: 50%;
+  }
+
+.outside {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform-origin: left;
+    transition: 2s;
+    cursor: pointer;
+}
+
+
+  .front,
+  .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+  }
+  .front {
+    background-color: #ffffff;
+  }
+  .back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+  }
+
+  .outside p {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 6px;
+    color: #000046;
+  }
+
+  .inside p{
+    color: black;
+  }
+
+.birthday-img-div{
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.birthday-img-div img{
+    height: 100%;
+    width: 100%;
+}
+
+.balloons-img-div{
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    margin: auto;
+    
+}
+
+.balloons-img-div img{
+    height: 100%;
+    width: 100%;
+}
+
+.photos-div{
+  font-family: para;
+  padding: 10px;
+  border-radius: 20px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+}
+
+.photos-heading{
+    text-align: center;
+}
+
+.photo-carousel-frame{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 5px white solid;
+}
+
+.btn-div{
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+}
+
+
+
+.previous,
+.next{
+    border: none;
+    height: 40px;
+    width: 40px;
+    /* padding: 10px; */
+    font-weight: bold;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background-color: #0cabdb;
+}
+
+.photo-carousel-strip{
+    display: flex;
+    height: 300px;
+    width: 3000px;
+    transition: transform 0.5s ease;
+    /* object-fit: cover; */
+}
+
+.photo-div{
+    min-width: 300px;
+    /* height: 300px;
+    width: 300px; */
+    object-fit: cover;
+}
+
+.photo-div img{
+    height: 100%;
+    width: 100%;
+}
+
+.birthday-msg-heading{
+  font-family: para;
+}
+
+
+.birthday-msg-div{
+  padding: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+}
+
+.wishes-div{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 40px;
+}
+
+.msg-card{
+  font-family: message;
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    background-color: lightgreen;
+    border-radius: 30px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.name-and-img img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.name-and-img{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.game-section-div{
+  font-family: para;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+}
+
+.go-to-game-btn{
+  font-family: para;
+  padding: 15px;
+  background-color: rgb(62, 62, 190);
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+.para-and-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-section-img-div{
+  object-fit: cover;
+  height: 150px;
+  width: 150px;
+}
+
+.game-section-img-div img{
+  height: 100%;
+  width: 100%;
+}
+
+.container{
+    /* width: 90%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 30px;
+  }
+
+  .player-board{
+    font-family: para;
+    height: 150px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(0 0 0/0.6);
+    padding: 0 20px;
+  }
+
+  .player-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .player-img-div{
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .player-img-div img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  .turn{
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: myfont;
+  }
+  
+  .board {
+    opacity: 0.6;
+      margin: 50px;
+      display: grid;
+      height: 350px;
+      width: 350px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      /* border: 50px solid red; */
+      gap: 2px;
+      padding: 2px;
+      
+    }
+    
+    .cell {
+      font-family: TicTacToe;
+      background-color: rgb(0 0 0);
+      /* display: none; */
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 5rem;
+      border: 1px solid grey;
+      cursor: pointer;
+      /* appearance: none; */
+
+    }
+  
+    .result-dialog{
+      font-family: para;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px;
+      font-weight: bold;
+      background-color: #0c0909;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      /* border: 2px solid black; */
+    }
+  
+    .result-dialog button{
+      width: 70%;
+      padding: 10px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      color: black;
+    }
+  
+    dialog button:hover{
+      background-color: #0cabdb;
+    }
+
+    .game-page{
+      font-family: para;
+      background-image: url('images/strawhats.jpg');
+      background-size: cover;
+      padding: 50px;
+      margin: auto;
+    }
+
+    .game-settings{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      gap: 30px;
+      height: 500px;
+      margin: auto;
+    }
+
+    .player1-selection-div,
+    .player2-selection-div{
+      font-family: para;
+      display: flex;
+      /* width: 90%; */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .player1-name-input,
+    .player2-name-input{
+      font-family: para;
+      padding: 5px;
+      width: 120%;
+    }
+
+    .play-btn{
+      font-family: para;
+      padding: 15px;
+      background-color: rgb(62, 62, 190);
+      color: white;
+      border: none;
+      border-radius: 20px;
+    }

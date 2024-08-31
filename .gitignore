@@ -1,0 +1,39 @@
+# Node.js dependencies
+/node_modules
+
+# Build output
+/dist
+/build
+/public
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Webpack specific
+/.cache
+/.temp
+
+# IDE-specific files
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Miscellaneous
+*.log
+*.tmp
+*.lock
+
+# npm
+package-lock.json
+yarn.lock
